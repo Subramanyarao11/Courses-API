@@ -1,8 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
-// const url = process.env.URL;
-const url = 'mongodb+srv://Subramanya11:subramanya@cluster0.pik9w8t.mongodb.net/?retryWrites=true&w=majority'
+const url = process.env.URL;
 const getCourses = require('./routes/course');
 
 const app = express();

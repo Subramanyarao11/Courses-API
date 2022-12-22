@@ -27,5 +27,11 @@ router.delete('/:id', (req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+// Updating the course title and link using Patch request and the course id
+
+router.patch('/:id', (req, res) => {
+    Course.findByIdAndUpdate({ _id: req.params.id }, { $set: { title: req.body.title, link: req.body.link } }).then(() => res.status(200).json('Course Updated')).catch(err => res.status(400).json('Error: ' + err));
+});
+
 
 module.exports = router;

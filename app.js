@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const url = process.env.MONGODB_URI;
 const getCourses = require('./routes/course');
 const app = express();
+const cors = require('cors');
 const port = process.env.PORT || 3000
 
 //Conneting To DB
@@ -20,6 +21,10 @@ app.get('/', (req, res) => {
 // Using bodyParser  by default to all the routes as middleware to parse the body of the request
 app.use(express.json());
 
+// Using Cors Middleware to allow cross origin requests
+app.use(cors())
+
+// Using the routes
 app.use('/courses', getCourses);
 
 app.listen(port, () => {

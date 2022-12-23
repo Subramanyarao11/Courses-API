@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
-const url = process.env.URL;
+const url = process.env.MONGODB_URI;
 const getCourses = require('./routes/course');
 const app = express();
 const port = process.env.PORT || 3000

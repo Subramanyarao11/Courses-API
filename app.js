@@ -1,4 +1,5 @@
-require('dotenv').config()
+
+require("dotenv").config({ path: ".env" });
 const express = require('express');
 const mongoose = require('mongoose');
 const url = process.env.MONGODB_URI;
@@ -9,7 +10,11 @@ const port = process.env.PORT || 3000
 
 //Conneting To DB
 async function main() {
-    await mongoose.connect(url);
+    await mongoose.connect(url, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+        useCreateIndex: true
+    });
     // console.log('Connected to DB');
 }
 main().catch(err => console.log(err));
